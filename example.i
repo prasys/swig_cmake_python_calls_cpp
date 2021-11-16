@@ -1,14 +1,30 @@
 /* File : example.i */
 %module example
+%include "std_string.i"
 %{
-/* Put headers and other declarations here */
-extern double My_variable;
-extern int    fact(int);
-extern int    my_mod(int n, int m);
-extern int    six(void);
+	#include "example.h"
 %}
 
-extern double My_variable;
-extern int    fact(int);
-extern int    my_mod(int n, int m);
-extern int    six(void);
+class thang_data
+	{
+	public:
+		int x;
+		int y;
+	};
+
+class thang
+	{
+	public:
+		thang();
+		virtual ~thang();
+
+		int one(void);
+		std::string echo(std::string message);
+		thang_data get_data(void);
+	};
+
+extern "C"
+	{
+	int factorial(int n);
+	int six(void);
+	}

@@ -18,10 +18,11 @@ else()
     set(CMAKE_SWIG_FLAGS -classic)
 endif()
 
-swig_add_library(example TYPE MODULE LANGUAGE python SOURCES example.i example.cpp)
 set_property(SOURCE example.i PROPERTY CPLUSPLUS ON)
+swig_add_library(example TYPE MODULE LANGUAGE python SOURCES example.i example.cpp)
+#set_property(SOURCE example.i PROPERTY CPLUSPLUS ON)
 set_property(GLOBAL PROPERTY SWIG_USE_TARGET_INCLUDE_DIRECTORIES ON)
 set_property(SOURCE example.i PROPERTY SWIG_MODULE_NAME example)
 
-include_directories(${Python_INCLUDE_DIRS})
+include_directories(${Python_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR})
 swig_link_libraries(example ${Python_LIBRARIES})
