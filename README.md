@@ -1,7 +1,16 @@
 # swig_cmake_python_calls_cpp
 Example of how to use cmake and swig together with C++ to build Python bindings.  This stuff keeps
 changing and none of the examples I found worked out of the box on the Mac, so here's one that
-does work (today: 16 November 2021).
+works on Mac and Ubuntu with the latest verson of swig and cmake (as of today: 16 November 2021).
+
+Ubunto: You might have to update your version of cmake on Ubuntu, apt does not (did not?) support a high enough
+version of cmake for this to work so you might need to remove the apt version and install it with snap:
+
+```
+sudo apt remove --purge cmake
+hash -r
+sudo snap install cmake --classic
+```
 
 To use this example after cloning this repo:
 ```
