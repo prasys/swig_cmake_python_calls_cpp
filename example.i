@@ -1,30 +1,14 @@
-/* File : example.i */
+/*
+	EXAMPLE.I
+	---------
+	Copyright (c) 2021 Andrew Trotman
+	Released under the 2-clause BSD license (See:https://en.wikipedia.org/wiki/BSD_licenses)
+*/
 %module example
+
 %include "std_string.i"
 %{
 	#include "example.h"
 %}
 
-class thang_data
-	{
-	public:
-		int x;
-		int y;
-	};
-
-class thang
-	{
-	public:
-		thang();
-		virtual ~thang();
-
-		int one(void);
-		std::string echo(std::string message);
-		thang_data get_data(void);
-	};
-
-extern "C"
-	{
-	int factorial(int n);
-	int six(void);
-	}
+%include "example.h"
