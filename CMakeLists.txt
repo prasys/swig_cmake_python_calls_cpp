@@ -25,6 +25,7 @@ project(all)
 find_package(SWIG REQUIRED)
 include(${SWIG_USE_FILE})
 set(SWIG_SOURCE_FILE_EXTENSIONS ".i" ".swg")
+#set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for Mac OS X" FORCE)
 
 #
 #	Tell cmake that we need the Python development environment
@@ -58,6 +59,11 @@ swig_add_library(example TYPE MODULE LANGUAGE python SOURCES example.i example.c
 set_property(GLOBAL PROPERTY SWIG_USE_TARGET_INCLUDE_DIRECTORIES ON)
 include_directories(${Python_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR})
 
+#
+#   Tell CMAKE that in OSX we need to compile it for arm64 and x86_64
+#
+
+set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for Mac OS X" FORCE)
 #
 #	This Python modile is called 'example'
 #
