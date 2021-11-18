@@ -11,6 +11,9 @@
 #	Basic "stuff" needed to get cmake running without warnings
 #
 cmake_minimum_required(VERSION 3.8)
+
+set(CMAKE_VERBOSE_MAKEFILE on)
+
 cmake_policy(SET CMP0078 NEW)
 cmake_policy(SET CMP0086 NEW)
 
@@ -19,6 +22,8 @@ cmake_policy(SET CMP0086 NEW)
 #
 project(all)
 
+add_definitions("-Wall -fPIC -Wno-deprecated-declarations")
+
 #
 #	Tell cmake that we need swig
 #
@@ -26,6 +31,12 @@ find_package(SWIG REQUIRED)
 include(${SWIG_USE_FILE})
 set(SWIG_SOURCE_FILE_EXTENSIONS ".i" ".swg")
 #set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for Mac OS X" FORCE)
+
+#
+# Remove some cmake warnings
+#
+cmake_policy(SET CMP0078 NEW)
+cmake_policy(SET CMP0086 NEW)
 
 #
 #	Tell cmake that we need the Python development environment
@@ -37,10 +48,10 @@ find_package(Python REQUIRED COMPONENTS Interpreter Development)
 #
 if(Python_VERSION VERSION_GREATER_EQUAL 3)
 	message("Building for Python 3")
-    set(CMAKE_SWIG_FLAGS -py3)
+    set(CMAKE_SWIG_FLAGS -py3 -doxygen)
 else()
 	message("Building for Python 2")
-    set(CMAKE_SWIG_FLAGS -classic)
+    set(CMAKE_SWIG_FLAGS -classic -doxygen)
 endif()
 
 #
