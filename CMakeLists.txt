@@ -64,6 +64,13 @@ set_property(SOURCE example.i PROPERTY CPLUSPLUS ON)
 swig_add_library(example TYPE MODULE LANGUAGE python SOURCES example.i example.cpp)
 
 #
+#   Tell CMAKE that for OSX we need universal binary and enforce it
+#
+
+set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for Mac OS X" FORCE)
+
+
+#
 #	Tell CMAKE_SWIG that we have our own include directories
 #
 set_property(GLOBAL PROPERTY SWIG_USE_TARGET_INCLUDE_DIRECTORIES ON)
