@@ -71,10 +71,11 @@ set_property(GLOBAL PROPERTY SWIG_USE_TARGET_INCLUDE_DIRECTORIES ON)
 include_directories(${Python_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR})
 
 #
-#   Tell CMAKE that in OSX we need to compile it for arm64 and x86_64
+#   Tell CMAKE that for OSX we need universal binary
 #
 
 set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for Mac OS X" FORCE)
+
 #
 #	This Python modile is called 'example'
 #
