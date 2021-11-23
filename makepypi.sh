@@ -10,7 +10,7 @@ touch ../setup.cfg
 if [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ] then
 cd ..
 cd dist
-rename cp36-cp36m-linux_x86_64.whl cp36-cp36m-manylinux_2_17_x86_64.whl  *.whl # TODO: handle dynamic naming but we will fix the python version for this 
+rename cp36-cp36m-linux_x86_64.whl cp36-cp36m-manylinux_2_17_x86_64.whl  *.whl # TODO: handle in dynamic way
 fi
 cd ..
 ls -lrt
