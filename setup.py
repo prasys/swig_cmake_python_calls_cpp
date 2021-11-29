@@ -12,7 +12,7 @@ setup(
     download_url='',
     packages=['output'],
    # package_dir={'': '.'},
-   package_data={'': ['_example.so']},
+   package_data={'': ['_example.so']}, #replace me with your package data
    classifiers=[
        'Programming Language :: Python :: 3',
        'Operating System :: MacOS :: MacOS X',
